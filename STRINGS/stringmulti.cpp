@@ -3,7 +3,7 @@ public:
     string multiply(string num1, string num2) {
         if (num1 == "0" || num2 == "0") return "0";
 
-        int n= num1.size();
+        int n1= num1.size();
         int n = num2.size();
         vector<int> result(n1 + n2, 0);
 
