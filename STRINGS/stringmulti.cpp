@@ -4,7 +4,7 @@ public:
         if (num1 == "0" || num2 == "0") return "0";
 
         int n= num1.size();
-        int n2 = num2.size();
+        int n = num2.size();
         vector<int> result(n1 + n2, 0);
 
         // Multiply each digit from right to left
