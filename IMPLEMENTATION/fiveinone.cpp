@@ -3,7 +3,7 @@ using namespace std;
 
 int maximum(int a[], int n) {
     int max_val = a[0];
-    for (int i = 1; i < n; i++) {
+    for (i i = 1; i < n; i++) {
         if (a[i] > max_val) {
             max_val = a[i];
         }
