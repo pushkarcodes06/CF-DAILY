@@ -7,41 +7,27 @@ int main() {
     cin.tie(NULL);
 
     long long a, b, x;
-    if (!(cin >> a >> b >> x)) return 0;
+    cin >> a >> b >> x;
 
-    // Find the first multiple >= a safely
-    long long first;
-    if (a >= 0) {
-        first = ((a + x - 1) / x) * x;
-    } else {
-        first = (a / x) * x;
-    }
+    // Find the first multiple of x >= a
+    long long first = ((a + x - 1) / x) * x;
 
-    // Find the last multiple <= b safely
-    long long last;
-    if (b >= 0) {
-        last = (b / x) * x;
-    } else {
-        last = ((b - x + 1) / x) * x;
-    }
+    // Find the last multiple of x <= b
+    long long last = (b / x) * x;
 
-    // If no multiples exist in the valid range
+    // If no such multiples exist in the range [a, b]
     if (first > last || first > b || last < a) {
         cout << 0 << "\n";
         return 0;
     }
 
-    // Calculate number of terms
+    // Number of multiples in the range
     long long n = (last - first) / x + 1;
 
-    // Use __int128 to prevent overflow during multiplication
-    __int128 total_sum = (__int128)n * (first + last) / 2;
+    // Calculate sum using the AP formula
+    long long sum = n * (first + last) / 2;
 
-    // Convert __int128 back to standard type for printing
-    // Note: If the final answer itself exceeds long long, 
-    // you must print it digit by digit or use a modulo if required by the problem.
-    long long final_ans = (long long)total_sum;
-    cout << final_ans << "\n";
+    cout << sum << "\n";
 
     return 0;
 }
