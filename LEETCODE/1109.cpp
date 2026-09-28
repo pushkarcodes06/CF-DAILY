@@ -1,0 +1,16 @@
+class Solution {
+public:
+//just a sweep line concept
+    vector<int> corpFlightBookings(vector<vector<int>>& bookings, int n) {
+        vector<int>arr(n+1,0);
+        for(auto it:bookings){
+           arr[it[0]-1]+=it[2];
+           arr[it[1]]-=it[2];
+        }
+        for(int i=0;i<n;i++){
+            arr[i+1]+=arr[i];
+        }
+        arr.pop_back();
+        return arr;
+    }
+};
